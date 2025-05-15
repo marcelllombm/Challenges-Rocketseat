@@ -8,7 +8,7 @@ export function App() {
   return (
     <>
       <Header
-        titleH1="todo"
+        titleH1="Todo"
         src={rocket}
         alt="Imagem de um Foguete"
         title="Foguete"

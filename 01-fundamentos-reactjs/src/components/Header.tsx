@@ -1,7 +1,8 @@
-import type { ImgHTMLAttributes } from "react";
 import styles from "./Header.module.css";
+import { motion } from "framer-motion";
+import type { HTMLMotionProps } from "framer-motion";
 
-interface HeaderProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface HeaderProps extends HTMLMotionProps<"img"> {
   titleH1: string;
 }
 
@@ -15,17 +16,36 @@ export function Header({ titleH1, ...props }: HeaderProps) {
 
     styledTitle = (
       <h1>
-        <span className={styles.spanBlue}>{firstHalf}</span>
-        <span className={styles.spanPurpleDark}>{secondHalf}</span>
+        <motion.span
+          className={styles.spanBlue}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {firstHalf}
+        </motion.span>
+        <motion.span
+          className={styles.spanPurpleDark}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          {secondHalf}
+        </motion.span>
       </h1>
     );
   } else {
-    styledTitle = <h1>titleH1</h1>;
+    styledTitle = <h1>{titleH1}</h1>;
   }
 
   return (
     <header className={styles.header}>
-      <img {...props} />
+      <motion.img
+        initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        {...props}
+      />
       <h1>{styledTitle}</h1>
     </header>
   );
