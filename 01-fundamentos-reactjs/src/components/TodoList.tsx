@@ -1,12 +1,13 @@
 import { PlusCircle, ClipboardText } from "@phosphor-icons/react";
+import styles from "./TodoList.module.css";
 
 export function TodoList() {
   return (
-    <main>
-      <form>
-        <input />
+    <main className={styles.container}>
+      <form className={styles.form}>
+        <input placeholder="Adicione uma nova tarefa" />
         <button type="submit">
-          Criar <PlusCircle />
+          Criar <PlusCircle className={styles.plusCircle} size={20} />
         </button>
       </form>
 
