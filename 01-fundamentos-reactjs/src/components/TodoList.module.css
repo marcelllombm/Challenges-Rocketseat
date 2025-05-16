@@ -1,6 +1,8 @@
 main {
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .form {
   display: flex;
@@ -36,6 +38,7 @@ main {
   border: 0;
   border-radius: 8px;
   align-items: center;
+  cursor: pointer;
 }
 
 .form button:hover {
@@ -44,4 +47,55 @@ main {
 
 .plusCircle {
   margin-left: 8px;
+}
+
+.content {
+  margin: 0 auto;
+  padding-top: 91px;
+  width: 100%;
+  width: 761px;
+  text-align: center;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 0.975rem;
+  font-weight: bold;
+}
+
+.summary span {
+  background: var(--gray-400);
+  color: var(--gray-200);
+  font-size: 0.8125rem;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+.task {
+  color: var(--blue);
+}
+
+.completed {
+  color: var(--purpleDark);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1rem;
+  width: 100%;
+
+  border-top: 2px solid var(--gray-400);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 24px;
+  padding-top: 64px;
+}
+
+.list strong {
+  margin-top: 16px;
 }
