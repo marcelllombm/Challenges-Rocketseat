@@ -18,7 +18,7 @@ export function Task({ task, onDeleteTask, onToggleCheck }: TaskProps) {
         checked={task.marked}
         onChange={() => onToggleCheck(task.id)}
       />
-      <p>{task.task}</p>
+      <p className={task.marked ? styles.checkTrue : ""}>{task.task}</p>
       <button
         className={styles.deleteButton}
         onClick={() => onDeleteTask(task.id)}

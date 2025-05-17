@@ -11,7 +11,13 @@
 
   margin: 6px 10px;
 }
-
+.checkTrue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
 .content p {
   padding: 10px;
 }
