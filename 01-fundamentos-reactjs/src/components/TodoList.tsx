@@ -1,7 +1,20 @@
 import { PlusCircle, ClipboardText } from "@phosphor-icons/react";
 import styles from "./TodoList.module.css";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import { v4 as uuidv4 } from "uuid";
+
+interface TaskProps {
+  id: string;
+  task: string;
+  marked: boolean;
+}
 
 export function TodoList() {
+  const [amountOfTask, setAmountOfTask] = useState(0);
+  const [taskCompleted, setTaskCompleted] = useState(0);
+  const [taskChange, setTaskChange] = useState("");
+  const [taskContent, setTaskContent] = useState<TaskProps[]>([]);
+
   const zeroListing = (
     <>
       <ClipboardText size={56} weight="light" color="#333333" />
@@ -10,10 +23,32 @@ export function TodoList() {
     </>
   );
 
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    setTaskChange(event.target.value);
+  }
+
+  function handleCreateNewTask(event: FormEvent) {
+    event.preventDefault();
+    const value = {
+      id: uuidv4(),
+      task: taskChange,
+      marked: false,
+    };
+
+    setTaskContent((prev) => [...prev, value]);
+    setAmountOfTask((prev) => prev + 1);
+    setTaskChange("");
+  }
+
   return (
     <main className={styles.container}>
-      <form className={styles.form}>
-        <input placeholder="Adicione uma nova tarefa" />
+      <form onSubmit={handleCreateNewTask} className={styles.form}>
+        <input
+          placeholder="Adicione uma nova tarefa"
+          value={taskChange}
+          onChange={handleNewTaskChange}
+          required
+        />
         <button type="submit">
           Criar <PlusCircle className={styles.plusCircle} size={20} />
         </button>
@@ -21,14 +56,16 @@ export function TodoList() {
       <div className={styles.content}>
         <div className={styles.summary}>
           <div className={styles.task}>
-            Tarefas criadas <span>0</span>
+            Tarefas criadas <span>{amountOfTask}</span>
           </div>
           <div className={styles.completed}>
-            Concluídas <span>0</span>
+            Concluídas <span>{taskCompleted}</span>
           </div>
         </div>
 
-        <div className={styles.list}>{zeroListing}</div>
+        <div className={styles.list}>
+          {amountOfTask === 0 ? zeroListing : <p> vc tem {amountOfTask}</p>}
+        </div>
       </div>
     </main>
   );
