@@ -8,11 +8,16 @@ interface TaskProps {
     marked: boolean;
   };
   onDeleteTask: (id: string) => void;
+  onToggleCheck: (id: string) => void;
 }
-export function Task({ task, onDeleteTask }: TaskProps) {
+export function Task({ task, onDeleteTask, onToggleCheck }: TaskProps) {
   return (
     <div className={styles.content}>
-      <input type="checkbox" />
+      <input
+        type="checkbox"
+        checked={task.marked}
+        onChange={() => onToggleCheck(task.id)}
+      />
       <p>{task.task}</p>
       <button
         className={styles.deleteButton}

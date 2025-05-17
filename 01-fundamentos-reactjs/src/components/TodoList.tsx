@@ -44,8 +44,26 @@ export function TodoList() {
   function handleDeleteTask(id: string) {
     const currentList = taskContent.filter((task) => task.id !== id);
     setTaskContent(currentList);
+    setAmountOfTask((prev) => prev - 1);
   }
 
+  function handleToggleTaskCheck(id: string) {
+    const updatedTasks = taskContent.map((task) =>
+      task.id === id
+        ? { ...task, marked: !task.marked } // inverte o valor de 'marked'
+        : task
+    );
+
+    setTaskContent(updatedTasks);
+
+    const completedCount = updatedTasks.reduce((count, task) => {
+      return task.marked ? count + 1 : count;
+    }, 0);
+
+    setTaskCompleted(completedCount);
+  }
+
+  const aboveZero = `${taskCompleted} - ${amountOfTask}`;
   return (
     <main className={styles.container}>
       <form onSubmit={handleCreateNewTask} className={styles.form}>
@@ -65,7 +83,7 @@ export function TodoList() {
             Tarefas criadas <span>{amountOfTask}</span>
           </div>
           <div className={styles.completed}>
-            Concluídas <span>{taskCompleted}</span>
+            Concluídas <span>{taskCompleted === 0 ? 0 : aboveZero}</span>
           </div>
         </div>
 
@@ -80,6 +98,7 @@ export function TodoList() {
                     key={taskList.id}
                     task={taskList}
                     onDeleteTask={handleDeleteTask}
+                    onToggleCheck={handleToggleTaskCheck}
                   />
                 );
               })}
