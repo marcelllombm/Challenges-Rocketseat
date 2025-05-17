@@ -1,0 +1,67 @@
+.content {
+  width: 720px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  color: var(--gray-200);
+  border-radius: 8px;
+
+  margin: 6px 10px;
+}
+
+.content p {
+  padding: 10px;
+}
+
+.deleteButton {
+  background-color: transparent;
+  color: var(--gray-100);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteButton:hover {
+  background-color: var(--gray-400); /* cinza escuro */
+  color: var(--danger);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--blue);
+  border-radius: 50%; /* deixa redondo */
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--purpleDark); /* cor quando marcado */
+  border-color: var(--purpleDark);
+}
+input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:checked:hover {
+  filter: brightness(1.2);
+}

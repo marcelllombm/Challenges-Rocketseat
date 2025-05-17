@@ -2,6 +2,7 @@ import { PlusCircle, ClipboardText } from "@phosphor-icons/react";
 import styles from "./TodoList.module.css";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Task } from "./Task";
 
 interface TaskProps {
   id: string;
@@ -64,7 +65,13 @@ export function TodoList() {
         </div>
 
         <div className={styles.list}>
-          {amountOfTask === 0 ? zeroListing : <p> vc tem {amountOfTask}</p>}
+          {amountOfTask === 0 ? (
+            zeroListing
+          ) : (
+            <>
+              <Task />
+            </>
+          )}
         </div>
       </div>
     </main>
