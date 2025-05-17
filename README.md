@@ -1,4 +1,5 @@
 # Challenges-Rocketseat
+
 Practical Challenges
 
 ## Desafio 01-fundamentos-reactjs
@@ -26,6 +27,45 @@ Apesar de serem poucas funcionalidades, você vai precisar relembrar conceitos c
 
 Caso você queira relembrar esses conceitos, você pode assistir aulas como [Estado](https://app.rocketseat.com.br/node/chapter-i-6/group/os-motores-do-react/lesson/estado-1), [Iterando no JSX](https://app.rocketseat.com.br/node/chapter-i-6/group/os-motores-do-react/lesson/iterando-no-jsx), [Entendendo a key](https://app.rocketseat.com.br/node/chapter-i-6/group/os-motores-do-react/lesson/entendendo-a-key), [Componentes](https://app.rocketseat.com.br/node/chapter-i-6/group/iniciando-com-react/lesson/componentes-1) e [Propriedades](https://app.rocketseat.com.br/node/chapter-i-6/group/iniciando-com-react/lesson/propriedades-3).
 
-Para completar esse desafio, você pode necessitar de pesquisas para aprender sobre métodos de manipulação de arrays como `map`, `filter`  ou até mesmo `reduce`.
+Para completar esse desafio, você pode necessitar de pesquisas para aprender sobre métodos de manipulação de arrays como `map`, `filter` ou até mesmo `reduce`.
 
 ![Captura de Tela 2025-05-17 às 18 09 31](https://github.com/user-attachments/assets/601f7db3-a7af-4c74-8c97-5f2834da5b24)
+
+# 🧪 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- React
+- TypeScript
+
+# 🚀 Como executar
+
+Clone o projeto e acesse a pasta do mesmo.
+
+```
+
+git clone https://github.com/marcelllombm/Challenges-Rocketseat.git
+```
+
+```
+
+cd Challenges-Rocketseat
+```
+
+Para iniciá-lo, siga os passos abaixo:
+
+# Instalar as dependências
+
+```
+
+$ npm install
+```
+
+# Iniciar o projeto
+
+```
+
+npm run dev
+```
+
+O app estará disponível no seu browser pelo endereço http://localhost:5173/
