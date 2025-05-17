@@ -41,6 +41,11 @@ export function TodoList() {
     setTaskChange("");
   }
 
+  function handleDeleteTask(id: string) {
+    const currentList = taskContent.filter((task) => task.id !== id);
+    setTaskContent(currentList);
+  }
+
   return (
     <main className={styles.container}>
       <form onSubmit={handleCreateNewTask} className={styles.form}>
@@ -69,7 +74,15 @@ export function TodoList() {
             zeroListing
           ) : (
             <>
-              <Task />
+              {taskContent.map((taskList) => {
+                return (
+                  <Task
+                    key={taskList.id}
+                    task={taskList}
+                    onDeleteTask={handleDeleteTask}
+                  />
+                );
+              })}
             </>
           )}
         </div>
