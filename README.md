@@ -1,7 +1,7 @@
 # Challenges-Rocketseat
 Practical Challenges
 
-## Desafio 01
+## Desafio 01 - 01-fundamentos-reactjs
 
 Nesse desafio você vai reforçar os **conceitos mais importantes** do ReactJS e aprender ainda mais conceitos que serão utilizados em todas as aplicações que você for desenvolver no futuro.
 
